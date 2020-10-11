@@ -6,20 +6,26 @@
 #include <chrono>
 using namespace std;
 
-void readFromConsole(string& fileName, int& size, int& min, int& max) {
+void readFileNameFromConsole(string& fileName) {
 	cout << "File name: ";
 	cin >> fileName;
+}
 
+void readSizeFromConsole(int& size) {
 	cout << "Size: ";
 	cin >> size;
 	while (size <= 0) {
 		cout << "Size is invalid!" << endl << "Size: ";
 		cin >> size;
 	}
+}
 
+void readMinFromConsole(int& min) {
 	cout << "Min: ";
 	cin >> min;
+}
 
+void readMaxFromConsole(int& max, int min) {
 	cout << "Max: ";
 	cin >> max;
 
@@ -27,6 +33,13 @@ void readFromConsole(string& fileName, int& size, int& min, int& max) {
 		cout << "Max is invalid, max < min!" << endl << "Max: ";
 		cin >> max;
 	}
+}
+
+void readFromConsole(string& fileName, int& size, int& min, int& max) {
+	readFileNameFromConsole(fileName);
+	readSizeFromConsole(size);
+	readMinFromConsole(min);
+	readMaxFromConsole(max, min);
 }
 
 vector<int> readFromFile(string fileName) {
@@ -43,6 +56,16 @@ vector<int> readFromFile(string fileName) {
 
 	sort(numbers.begin(), numbers.end());
 	return numbers;
+}
+
+void verifyIfTwoVectorsContainsTheSameElements(vector<int> vectorOne, vector<int> vectorTwo) {
+	bool vectorEquals = vectorOne == vectorTwo;
+	if (vectorEquals) {
+		cout << "fisierele contin aceleasi elemente";
+	}
+	else {
+		cout << "fisierele nu contin aceleasi elemente";
+	}
 }
 
 int main() {
@@ -65,26 +88,13 @@ int main() {
 		ofile.close();
 	} else {
 		string fileNameOne, fileNameTwo;
-		cout << "File one: ";
-		cin >> fileNameOne;
-
-		cout << "File two: ";
-		cin >> fileNameTwo;
-		
-		auto start = std::chrono::system_clock::now();
+		readFileNameFromConsole(fileNameOne);
+		readFileNameFromConsole(fileNameTwo);
 
 		vector<int> numbersOne = readFromFile(fileNameOne);
 		vector<int> numbersTwo = readFromFile(fileNameTwo);
 
-		bool vectorEquals = numbersOne == numbersTwo;
-		if (vectorEquals) {
-			cout << "fisierele contin aceleasi elemente";
-		} else {
-			cout << "fisierele nu contin aceleasi elemente";
-		}
-
-		auto end = std::chrono::system_clock::now();
-		cout << endl << (end - start).count();
+		verifyIfTwoVectorsContainsTheSameElements(numbersOne, numbersTwo);
 	}
 }
 
