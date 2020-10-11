@@ -29,24 +29,12 @@ public class ReadFromConsole {
 
     public int readFromConsoleMin(Scanner console) {
         System.out.println("Min:");
-        int min = console.nextInt();
-        while (min <= 0) {
-            System.out.println("Min is invalid!");
-            System.out.println("Min:");
-            min = console.nextInt();
-        }
-        return min;
+        return console.nextInt();
     }
 
     public int readFromConsoleMax(Scanner console, int min) {
         System.out.println("Max:");
         int max = console.nextInt();
-
-        while (max <= 0) {
-            System.out.println("Max is invalid!");
-            System.out.println("Max:");
-            max = console.nextInt();
-        }
 
         while (max < min) {
             System.out.println("Max is invalid, max < min!");
