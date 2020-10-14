@@ -20,6 +20,11 @@ public class Verify {
         var numbersFromFileOne = readFromFile.readFromFile(fileOne);
         var numbersFromFileTwo = readFromFile.readFromFile(fileTwo);
 
+        if (numbersFromFileOne.size() != numbersFromFileTwo.size()) {
+            System.out.println("fisierele nu contin aceleasi date");
+
+        }
+
         if (numbersFromFileOne.equals(numbersFromFileTwo)) {
             System.out.println("fisierele contin aceleasi date");
         } else {

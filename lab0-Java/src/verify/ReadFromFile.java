@@ -15,16 +15,16 @@ public class ReadFromFile {
         return new Scanner(file);
     }
 
-    public List<Integer> readFromFile(String fileName) throws FileNotFoundException {
+    public List<Double> readFromFile(String fileName) throws FileNotFoundException {
 
         Scanner scanner = createScanner(fileName);
-        List<Integer> numbers = new ArrayList<>();
+        List<Double> numbers = new ArrayList<>();
 
         while (scanner.hasNextLine()) {
             String data = scanner.nextLine();
 
             Arrays.stream(data.split(" "))
-                    .map(Integer::parseInt)
+                    .map(Double::parseDouble)
                     .forEach(numbers::add);
         }
 
