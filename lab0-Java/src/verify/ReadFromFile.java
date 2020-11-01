@@ -28,7 +28,7 @@ public class ReadFromFile {
                     .forEach(numbers::add);
         }
 
-        return numbers.parallelStream()
+        return numbers.stream()
                 .sorted()
                 .collect(Collectors.toList());
     }

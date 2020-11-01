@@ -82,7 +82,7 @@ int main() {
 		ofile.open(fileName);
 
 		for (int i = 0; i < size; ++i) {
-			ofile << rand() % max + min << " ";
+			ofile << rand() % (max - min + 1) + min << " ";
 		}
 
 		ofile.close();

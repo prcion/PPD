@@ -23,12 +23,12 @@ public class Verify {
         if (numbersFromFileOne.size() != numbersFromFileTwo.size()) {
             System.out.println("fisierele nu contin aceleasi date");
 
-        }
-
-        if (numbersFromFileOne.equals(numbersFromFileTwo)) {
-            System.out.println("fisierele contin aceleasi date");
         } else {
-            System.out.println("fisierele nu contin aceleasi date");
+            if (numbersFromFileOne.equals(numbersFromFileTwo)) {
+                System.out.println("fisierele contin aceleasi date");
+            } else {
+                System.out.println("fisierele nu contin aceleasi date");
+            }
         }
 
         long end = System.currentTimeMillis();

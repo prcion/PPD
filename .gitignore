@@ -1,3 +1,7 @@
 
 lab0-C++/.vs/lab0-C++/v15/Browse.VC.opendb
 lab-Java/.idea/workspace.xml
+
+*.txt
+/out
+/.idea
